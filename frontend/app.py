@@ -22,7 +22,7 @@ if user:
     with st.spinner("Thinking…"):
         try:
             response = requests.post(
-                "http://127.0.0.1:8000/chat",
+                "https://chat-n-schedule.onrender.com/chat",
                 json={
                     "prompt": user,
                     "slots": st.session_state.slots,
