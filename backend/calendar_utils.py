@@ -4,12 +4,13 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from datetime import datetime
+import json
 
-SERVICE_ACCOUNT_FILE = os.getenv("SERVICE_ACCOUNT_FILE")
 CALENDAR_ID = os.getenv("CALENDAR_ID")
 
-credentials = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE,
+SERVICE_ACCOUNT_JSON = os.getenv("SERVICE_ACCOUNT_JSON")
+credentials = service_account.Credentials.from_service_account_info(
+    json.loads(SERVICE_ACCOUNT_JSON),
     scopes=["https://www.googleapis.com/auth/calendar"]
 )
 service = build("calendar", "v3", credentials=credentials)
