@@ -71,14 +71,14 @@ g.add_edge("tools", "llm")
 graph = g.compile()
 
 def chat_with_agent(prompt: str, user_timezone: str = "UTC", previous_slots: dict = None):
-    print("🟢 chat_with_agent called")
+    print("chat_with_agent called")
 
     if previous_slots is None:
         previous_slots = {}
 
-    print("📥 Prompt:", prompt)
-    print("🧠 Previous slots:", previous_slots)
-    print("🌍 Timezone:", user_timezone)
+    print(" Prompt:", prompt)
+    print("Previous slots:", previous_slots)
+    print("Timezone:", user_timezone)
 
     messages = [HumanMessage(content=prompt)]
     slot_info = "\n".join(f"{k}: {v}" for k, v in previous_slots.items())
@@ -91,12 +91,12 @@ def chat_with_agent(prompt: str, user_timezone: str = "UTC", previous_slots: dic
         "user_timezone": user_timezone,
     }
 
-    print("🚀 Invoking LangGraph...")
+    print("Invoking LangGraph...")
     out = graph.invoke(state)
-    print("✅ LangGraph returned:", out)
+    print("LangGraph returned:", out)
 
     messages = out["messages"]
     response = next(m.content for m in reversed(messages) if isinstance(m, AIMessage))
-    print("💬 Final response:", response)
+    print("Final response:", response)
 
     return response, out["slots"]

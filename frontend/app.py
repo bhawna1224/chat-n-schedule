@@ -34,7 +34,7 @@ if user:
 
             # Update slot memory
             updated = data.get("updated_slots", {})
-            st.session_state.slots.update(updated)  # 👈 merge new info
+            st.session_state.slots.update(updated)
 
         except requests.exceptions.RequestException as e:
             bot = f"Request failed: {e}"

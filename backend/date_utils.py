@@ -19,10 +19,10 @@ def parse_date_string(date_str: str, timezone: str = "UTC") -> datetime:
     )
 
     if not dt:
-        print("❌ Failed to parse datetime")
+        print("Failed to parse datetime")
         raise ValueError(f"Could not parse date string: {date_str}")
 
-    print(f"✅ Parsed datetime: {dt.isoformat()}")
+    print(f"Parsed datetime: {dt.isoformat()}")
     return dt
 
 

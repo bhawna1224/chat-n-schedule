@@ -26,7 +26,7 @@ def get_availability(start: datetime, end: datetime):
     return [] if not busy else busy
 
 def create_event(start: datetime, end: datetime, summary: str, description: str):
-    print(f"🗓️ Creating event: {summary} from {start} to {end}")
+    print(f"Creating event: {summary} from {start} to {end}")
 
     assert start.tzinfo is not None, "Start datetime must be timezone-aware"
     assert end.tzinfo is not None, "End datetime must be timezone-aware"
@@ -45,6 +45,6 @@ def create_event(start: datetime, end: datetime, summary: str, description: str)
     }
 
     evt = service.events().insert(calendarId=CALENDAR_ID, body=event).execute()
-    print(f"✅ Event created: {evt.get('htmlLink')}")
+    print(f"Event created: {evt.get('htmlLink')}")
     return evt.get("htmlLink")
 
