@@ -28,6 +28,7 @@ if user:
                     "slots": st.session_state.slots,
                 },
             )
+            st.write("📥 Raw response:", response.text)  # ADD THIS LINE
             data = response.json()
             bot = data.get("response", "Sorry, no response")
 
