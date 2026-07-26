@@ -96,11 +96,5 @@ Once both servers are running, open the Streamlit app in your browser and start 
 
 The assistant will check your calendar, ask for any missing details, and confirm once the event is booked — with a link to the created event.
 
-## Notes
 
-- Keep your `.env` and service account JSON out of version control — they're already excluded via `.gitignore`.
-- The backend URL in the frontend is hardcoded; consider moving it to an environment variable if you plan to deploy your own instance.
 
-## License
-
-No license specified yet — consider adding one (e.g. MIT) if you plan to share or open this project up for contributions.
